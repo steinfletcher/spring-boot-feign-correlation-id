@@ -1,0 +1,41 @@
+group 'com.steinf'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+buildscript {
+    dependencies {
+        classpath 'io.spring.gradle:propdeps-plugin:0.0.9.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+}
+
+apply plugin: 'propdeps'
+
+repositories {
+    mavenCentral()
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+dependencies {
+    provided 'org.springframework.boot:spring-boot-starter-web:1.5.9.RELEASE'
+    provided 'io.github.openfeign:feign-core:9.5.1'
+}
