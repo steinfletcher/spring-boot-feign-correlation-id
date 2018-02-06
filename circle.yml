@@ -2,6 +2,15 @@ machine:
   java:
     version: openjdk8
 
+general:
+  branches:
+    only:
+    - master
+
+dependencies:
+  cache_directories:
+    - ~/.gradle
+
 test:
   override:
     - |
