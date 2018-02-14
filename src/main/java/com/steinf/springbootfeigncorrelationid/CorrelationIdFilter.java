@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Component
 public class CorrelationIdFilter implements Filter {
-  public static final String HEADER_KEY = "CORRELATION-ID";
+  public static final String HEADER_KEY = "correlation_id";
 
   @Override
   public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
